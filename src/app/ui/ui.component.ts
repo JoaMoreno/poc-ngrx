@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  templateUrl: './ui.component.html',
+  styleUrls: ['./ui.component.scss']
 })
-export class AppComponent {
+export class UiComponent {
   title = 'poc-ngrx';
 }
