@@ -8,6 +8,7 @@ import { DomainStateModule } from './state/domain-state/domain-state.module';
 import { AppStateModule } from './state/app-state/app-state.module';
 import { EffectsModule } from '@ngrx/effects';
 import { MainEffects } from './state/core/effects/main.effects';
+import { UiStateModule } from './state/ui-state/ui-state.module';
 
 
 
@@ -17,6 +18,7 @@ import { MainEffects } from './state/core/effects/main.effects';
     CommonModule,
     DomainStateModule,
     AppStateModule,
+    UiStateModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {

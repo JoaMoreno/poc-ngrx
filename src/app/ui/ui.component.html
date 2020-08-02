@@ -1,2 +1,8 @@
 <button (click)="loadUsers()">LOAD USERS</button>
+<ng-container *ngIf="isLoading$; else cargando">
+  Cargados
+</ng-container>
+<ng-template #cargando>
+  Cargando...
+</ng-template>
 <router-outlet></router-outlet>
