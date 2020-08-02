@@ -19,7 +19,7 @@ import { Update } from '@ngrx/entity';
 export class UiComponent implements OnInit {
   title = 'poc-ngrx';
   isLoading$: boolean
-  usersApp$: Observable<User[]>
+  usersApp$: User[]
 
   constructor(private store$: Store) { }
 
@@ -28,14 +28,16 @@ export class UiComponent implements OnInit {
     this.store$.select(fromUiReady.selectIsUiReady).subscribe(
       (data) => this.isLoading$ = data
     )
-    this.usersApp$ = this.store$.select(fromUserApp.gettAll)
+    this.store$.select(fromUserApp.gettAll).subscribe(
+      (users) => this.usersApp$ = users
+    )
   }
 
   loadUsers() {
     this.store$.dispatch(usersDomainActions.loadUsers())
   }
 
-  selectUser(user){
+  selectUser(user: User){
     const update: Update<User> = {
       id: user.id,
       changes: {isSelected: !user.isSelected}
