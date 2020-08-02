@@ -3,7 +3,7 @@ import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 import { User } from './user.model';
 import * as UserActions from './user.actions';
 
-export const usersFeatureKey = 'usersDomain';
+export const usersFeatureKey = 'users';
 
 export interface State extends EntityState<User> {
   // additional entities state properties
@@ -31,7 +31,7 @@ export const reducer = createReducer(
     (state, action) => adapter.upsertMany(action.users, state)
   ),
   on(UserActions.updateUser,
-    (state, action) => adapter.updateOne(action.user, state)
+    (state, { user }) => adapter.updateOne(user, state)
   ),
   on(UserActions.updateUsers,
     (state, action) => adapter.updateMany(action.users, state)
@@ -42,8 +42,9 @@ export const reducer = createReducer(
   on(UserActions.deleteUsers,
     (state, action) => adapter.removeMany(action.ids, state)
   ),
-  on(UserActions.loadUsersSuccess, 
-    (state, action) => adapter.setAll(action.users, state)),
+  on(UserActions.loadUsers,
+    (state, action) => adapter.setAll(action.users, state)
+  ),
   on(UserActions.clearUsers,
     state => adapter.removeAll(state)
   ),

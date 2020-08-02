@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { StoreModule } from '@ngrx/store';
-import * as fromUiReady from './ui-ready.reducer';
 
 
 
@@ -11,4 +9,4 @@ import * as fromUiReady from './ui-ready.reducer';
     CommonModule
   ]
 })
-export class UiReadyModule { }
+export class UsersModule { }

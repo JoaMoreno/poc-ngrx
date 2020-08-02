@@ -11,7 +11,6 @@ import { UserEffects } from './user.effects';
   declarations: [],
   imports: [
     CommonModule,
-    StoreModule.forFeature(fromUser.usersFeatureKey, fromUser.reducer),
     EffectsModule.forFeature([UserEffects])
   ]
 })

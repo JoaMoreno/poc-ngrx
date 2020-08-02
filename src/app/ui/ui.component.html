@@ -1,6 +1,10 @@
 <button (click)="loadUsers()">LOAD USERS</button>
+<br>
 <ng-container *ngIf="isLoading$; else cargando">
-  Cargados
+  <ng-container *ngFor="let user of usersApp$ | async">
+    <input (click)="selectUser(user.id)" type="checkbox">
+    {{user.name}} - {{user.isSelected}}<br>
+  </ng-container>
 </ng-container>
 <ng-template #cargando>
   Cargando...
